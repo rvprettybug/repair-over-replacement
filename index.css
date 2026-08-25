@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream-100 text-ink-900 font-body antialiased dark:bg-ink-900 dark:text-cream-100;
+}
+
+::selection {
+  @apply bg-clay-300 text-ink-900;
+}
+
+:focus-visible {
+  outline: 2px solid #f57e14;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ticket / repair-tag motif: perforated divider used across cards & stat blocks */
+.perforated {
+  position: relative;
+}
+.perforated::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: 0;
+  border-top: 1.5px dashed theme('colors.emerald.200');
+}
+
+.tag-notch {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
